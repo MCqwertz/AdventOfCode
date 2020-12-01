@@ -19,20 +19,29 @@ public class Day1 {
 		System.out.println("Task 2: " + day.getSecondPart(supplier));
 	}
 
+	/**
+	 * @param supplier supplier of the stream with all given numbers
+	 * @return the solution of the first problem
+	 */
 	private int getFirstPart(Supplier<IntStream> supplier) {
 		IntPredicate isSearched = arg -> this.isContaining(supplier.get(), 2020 - arg);
 		int result = 1;
-		for (int i : supplier.get().filter(isSearched).
-				toArray()) {
+		//check for each int whether there is suitable second int
+		for (int i : supplier.get().filter(isSearched).toArray()) {
 			result = result * i;
 		}
 		return result;
 	}
-
+	/**
+	 * @param supplier supplier of the stream with all given numbers
+	 * @return the solution of the second problem
+	 */
 	private int getSecondPart(Supplier<IntStream> supplier) {
 		int[] array = supplier.get().toArray();
+		//combine each number with every other number
 		for (int i : array) {
 			for (int j : array) {
+				//check for a third suitable number
 				if (isContaining(supplier.get(), 2020 - i - j)) {
 					return i * j * (2020 - i - j);
 				}
