@@ -6,7 +6,6 @@ package com.github.mcqwertz.util;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
@@ -45,9 +44,8 @@ public class TextFileUtils {
 			arrayList.add(scanner.nextLine());
 		}
 		int coulombs = arrayList.get(0).toCharArray().length;
-		char[][] grid = new char[arrayList.size() - 1][coulombs];
+		char[][] grid = new char[arrayList.size()][coulombs];
 		int j = 0;
-		arrayList.remove(0);
 		for (int i = 0; i < arrayList.size(); i++){
 			for (char c : arrayList.get(i).toCharArray()) {
 				grid[i][j++] = c;
@@ -61,6 +59,5 @@ public class TextFileUtils {
 	private static Scanner getScanner(int day) throws FileNotFoundException {
 		File file = new File("src/com/github/mcqwertz/year2020/input/Day" + day);
 		return new Scanner(file);
-
 	}
 }

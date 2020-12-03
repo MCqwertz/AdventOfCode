@@ -18,19 +18,17 @@ public class Day3 {
 	private static long getSecondResult(char[][] grid) {
 		return getTrees(grid, 1, 1) * getTrees(grid, 3, 1) * getTrees(grid, 5, 1) *
 				getTrees(grid, 7, 1) * getTrees(grid, 1, 2);
-
 	}
 
 	private static long getTrees(char[][] grid, int right, int down) {
 		long trees = 0;
 		int coulomb = 0;
-		for (int i = 0; i < grid.length; i = i + down) {
+		for (int i = down; i < grid.length; i += down) {
 			coulomb = coulomb + right;
 			if (grid[i][coulomb % grid[i].length] == '#') {
 				trees++;
 			}
 		}
-		System.out.println(trees);
 		return trees;
 	}
 }

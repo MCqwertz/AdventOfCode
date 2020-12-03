@@ -13,7 +13,6 @@ public class Day2 {
 		String[][] input = TextFileUtils.getInputDay2();
 		System.out.println("Part 1: " + getFirstPart(input));
 		System.out.println("Part 2: " + getSecondPart(input));
-
 	}
 
 	private static int getFirstPart(String[][] input) {
