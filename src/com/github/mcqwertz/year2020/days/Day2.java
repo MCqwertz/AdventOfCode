@@ -11,13 +11,12 @@ import java.util.function.IntPredicate;
 public class Day2 {
 	public static void main(String[] args) throws FileNotFoundException {
 		String[][] input = TextFileUtils.getInputDay2();
-		Day2 day = new Day2();
-		System.out.println("Part 1: " + day.getFirstPart(input));
-		System.out.println("Part 2: " + day.getSecondPart(input));
+		System.out.println("Part 1: " + getFirstPart(input));
+		System.out.println("Part 2: " + getSecondPart(input));
 
 	}
 
-	private int getFirstPart(String[][] input) {
+	private static int getFirstPart(String[][] input) {
 		int i = 0;
 		for (String[] strings : input) {
 			IntPredicate isSearched = arg -> arg == strings[2].charAt(0);
@@ -31,7 +30,7 @@ public class Day2 {
 		return i;
 	}
 
-	private int getSecondPart(String[][] input) {
+	private static int getSecondPart(String[][] input) {
 		int i = 0;
 		for (String[] strings : input) {
 			int int0 = Integer.parseInt(strings[0]) - 1;
