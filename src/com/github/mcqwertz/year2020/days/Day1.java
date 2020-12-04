@@ -6,6 +6,8 @@ package com.github.mcqwertz.year2020.days;
 import com.github.mcqwertz.util.TextFileUtils;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.function.IntPredicate;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
@@ -13,7 +15,7 @@ import java.util.stream.IntStream;
 
 public class Day1 {
 	public static void main(String[] args) throws FileNotFoundException {
-		Supplier<IntStream> supplier = TextFileUtils.getNumbers(1);
+		Supplier<IntStream> supplier = getInput();
 		System.out.println("Task 1: " + getFirstPart(supplier));
 		System.out.println("Task 2: " + getSecondPart(supplier));
 	}
@@ -56,5 +58,15 @@ public class Day1 {
 			}
 		}
 		return false;
+	}
+
+	public static Supplier<IntStream> getInput() throws FileNotFoundException {
+		Scanner scanner = TextFileUtils.getScanner(1);
+		ArrayList<String> arrayList = new ArrayList<>();
+		while(scanner.hasNextLine()) {
+			arrayList.add(scanner.nextLine());
+		}
+		scanner.close();
+		return () -> arrayList.stream().mapToInt(Integer::parseInt);
 	}
 }
