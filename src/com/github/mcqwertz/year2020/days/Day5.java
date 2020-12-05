@@ -13,7 +13,7 @@ public class Day5 {
 	public static void main(String[] args) throws FileNotFoundException {
 		ArrayList<Integer> input = getIDs();
 		System.out.println("Part 1: " + getHighestSeatID(input));
-		System.out.println("Part 1: " + getSantasSeat(input));
+		System.out.println("Part 2: " + getSantasSeat(input));
 	}
 
 	public static int getHighestSeatID(ArrayList<Integer> input) {
